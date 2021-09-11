@@ -1,23 +1,17 @@
 const User = require("./User");
 const Post = require("./Post");
-// const EventTags = require("./EventTags");
-// const Events = require("./Events");
+const Comment = require("./Comment");
 
 User.hasMany(Post, { foreignKey: "owner_id" });
 Post.belongsTo(User, { foreignKey: "owner_id" });
 
 User.hasMany(Post, { foreignKey: "attendee" });
-// EventAttend.belongsTo(User, { foreignKey: "attendee" });
-
-// Events.hasMany(EventAttend, { foreignKey: "event_id" });
-// EventAttend.belongsTo(Events, { foreignKey: "event_id" });
-
-// EventTags.hasMany(Events, { foreignKey: "tag_id" });
-// Events.belongsTo(EventTags, { foreignKey: "tag_id" });
+Comment.belongsTo(User, { foreignKey: "attendee" });
+Comment.belongsTo(Post, { foreignKey: "attendee" });
+Post.hasMany(Comment, { foreignKey: "attendee" });
 
 module.exports = {
   User,
   Post,
-  // EventAttend,
-  // EventTags,
+  Comment,
 };

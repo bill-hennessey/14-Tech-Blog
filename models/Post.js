@@ -21,10 +21,6 @@ Post.init(
     },
     post_text: {
       type: DataTypes.STRING(1000),
-      references: {
-        model: "eventtags",
-        key: "tag_id",
-      },
     },
     post_time: {
       type: DataTypes.DATE,

@@ -21,10 +21,6 @@ Comment.init(
     },
     comment_text: {
       type: DataTypes.STRING(1500),
-      references: {
-        model: "eventtags",
-        key: "tag_id",
-      },
     },
     comment_time: {
       type: DataTypes.DATE,
