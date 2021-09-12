@@ -1,8 +1,12 @@
 const router = require("express").Router();
-const entry = require("./post-routes");
+const post = require("./post-routes");
 
 //http:localhost:3001/api
 
-router.use("/post", entry);
+router.use("/post", post);
+
+router.get("/login", async (req, res) => {
+  res.render("login");
+});
 
 module.exports = router;
